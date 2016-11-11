@@ -1,4 +1,4 @@
-module app {
+module characterApp {
     var main = angular.module('characterManagement', ['ngRoute']);
 
 
@@ -10,16 +10,14 @@ module app {
    routeConfig.$inject = ['$routeProvider'];
    function routeConfig($routeProvider: ng.route.IRouteProvider) : void {
        $routeProvider.when('/characterList', {
-           templateUrl: baseUrl + viewFolderUrl + '/home.html'
-        //    controller: 'characterList as cl'
+           templateUrl: baseUrl + viewFolderUrl + '/home.html',
+           controller: 'CharacterListCtrl as vm'
        })
       .when('/contact', {
-           templateUrl: baseUrl + viewFolderUrl +'/contact.html'
-        //    controller: 'characterList as cl'
-       })
+           templateUrl: baseUrl + viewFolderUrl + '/contact.html'
+        })
       .when('/about', {
            templateUrl: baseUrl + viewFolderUrl + '/about.html'
-        //    controller: 'characterList as cl'
        }).otherwise('/characterList');
    }
 }

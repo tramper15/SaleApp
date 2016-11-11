@@ -1,5 +1,5 @@
-var app;
-(function (app) {
+var characterApp;
+(function (characterApp) {
     var main = angular.module('characterManagement', ['ngRoute']);
     main.config(routeConfig);
     var baseUrl = '/Sales%20App/SaleApp/src';
@@ -7,7 +7,8 @@ var app;
     routeConfig.$inject = ['$routeProvider'];
     function routeConfig($routeProvider) {
         $routeProvider.when('/characterList', {
-            templateUrl: baseUrl + viewFolderUrl + '/home.html'
+            templateUrl: baseUrl + viewFolderUrl + '/home.html',
+            controller: 'CharacterListCtrl as vm'
         })
             .when('/contact', {
             templateUrl: baseUrl + viewFolderUrl + '/contact.html'
@@ -16,6 +17,6 @@ var app;
             templateUrl: baseUrl + viewFolderUrl + '/about.html'
         }).otherwise('/characterList');
     }
-})(app || (app = {}));
+})(characterApp || (characterApp = {}));
 
 //# sourceMappingURL=app.js.map
