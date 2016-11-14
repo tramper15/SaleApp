@@ -3,11 +3,14 @@ var characterApp;
     var controllers;
     (function (controllers) {
         var CharacterListCtrl = (function () {
-            function CharacterListCtrl() {
+            function CharacterListCtrl(dataAccessService) {
+                var _this = this;
+                this.dataAccessService = dataAccessService;
                 this.title = 'Character List';
-                this.characterList = new Array();
-                this.characterList.push(new characterApp.models.Character('Toni', 'Bennet'));
-                this.characterList.push(new characterApp.models.Character('Katie', 'Bennet'));
+                var characterResource = dataAccessService.getCharacterResource();
+                characterResource.query(function (data) {
+                    _this.characterList = data;
+                });
             }
             return CharacterListCtrl;
         }());

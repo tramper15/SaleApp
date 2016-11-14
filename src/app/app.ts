@@ -1,6 +1,5 @@
 module characterApp {
-    var main = angular.module('characterManagement', ['ngRoute']);
-
+    var main = angular.module('characterManagement', ['ngRoute', 'common.services', 'characterResourceMock']);
 
     main.config (routeConfig);
 

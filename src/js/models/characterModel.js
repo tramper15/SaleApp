@@ -3,10 +3,11 @@ var characterApp;
     var models;
     (function (models) {
         var Character = (function () {
-            function Character(firstName, lastName //,
+            function Character(firstName, lastName, characterId //,
                 ) {
                 this.firstName = firstName;
                 this.lastName = lastName;
+                this.characterId = characterId;
             }
             return Character;
         }());

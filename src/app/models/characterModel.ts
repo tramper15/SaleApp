@@ -2,6 +2,7 @@ module characterApp.models {
     export interface ICharacterModel {
         firstName: string;
         lastName: string;
+        characterId: number
         // pictureUrl: string;
         // age: number;
         // ageAppearince: number;
@@ -16,7 +17,8 @@ module characterApp.models {
     export class Character implements ICharacterModel {
 
        constructor(public  firstName: string,
-                        public lastName: string//,
+                        public lastName: string,
+                        public characterId: number//,
                         // public pictureUrl: string,
                         // public age: number,
                         // public ageAppearince: number,

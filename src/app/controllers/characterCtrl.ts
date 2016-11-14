@@ -8,11 +8,13 @@ module characterApp.controllers {
         title: string;
         characterList: characterApp.models.Character[];
 
-        constructor() {
+        constructor(private dataAccessService : characterApp.common.DataAccessService) {
             this.title = 'Character List';
-            this.characterList = new Array<characterApp.models.Character>();
-            this.characterList.push(new characterApp.models.Character('Toni', 'Bennet'));
-            this.characterList.push(new characterApp.models.Character('Katie', 'Bennet'));
+
+            var characterResource = dataAccessService.getCharacterResource();
+            characterResource.query((data: characterApp.models.ICharacterModel[]) => {
+                this.characterList = data;
+            });
         }
     }
     angular.module('characterManagement').controller('CharacterListCtrl', CharacterListCtrl);

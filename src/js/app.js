@@ -1,6 +1,6 @@
 var characterApp;
 (function (characterApp) {
-    var main = angular.module('characterManagement', ['ngRoute']);
+    var main = angular.module('characterManagement', ['ngRoute', 'common.services', 'characterResourceMock']);
     main.config(routeConfig);
     var baseUrl = '/Sales%20App/SaleApp/src';
     var viewFolderUrl = '/views/app';
