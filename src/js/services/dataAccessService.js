@@ -1,20 +1,18 @@
 var characterApp;
 (function (characterApp) {
-    var common;
-    (function (common) {
-        var DataAccessService = (function () {
-            function DataAccessService($resource) {
-                this.$resource = $resource;
-            }
-            DataAccessService.prototype.getCharacterResource = function () {
-                return this.$resource('/api/characters/:productId');
+    var services;
+    (function (services) {
+        function DataAccessService($resource) {
+            var characterResource = $resource('/Sales%20App/SaleApp/src/app/JSON/TestCharacterData.json');
+            return {
+                getCharacterResource: function () {
+                    return characterResource.get().$promise;
+                }
             };
-            DataAccessService.$inject = ['$resource'];
-            return DataAccessService;
-        }());
-        common.DataAccessService = DataAccessService;
-        angular.module('common.services').service('dataAccessService', DataAccessService);
-    })(common = characterApp.common || (characterApp.common = {}));
+        }
+        DataAccessService.$inject = ['$resource'];
+        angular.module('characterManagement').factory('dataAccessService', DataAccessService);
+    })(services = characterApp.services || (characterApp.services = {}));
 })(characterApp || (characterApp = {}));
 
 //# sourceMappingURL=dataAccessService.js.map

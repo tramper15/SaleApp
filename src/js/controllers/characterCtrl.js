@@ -7,14 +7,25 @@ var characterApp;
                 var _this = this;
                 this.dataAccessService = dataAccessService;
                 this.title = 'Character List';
-                var characterResource = dataAccessService.getCharacterResource();
-                characterResource.query(function (data) {
-                    _this.characterList = data;
+                var promise = dataAccessService.getCharacterResource();
+                promise.then(function (result) {
+                    _this.characterList = result.data;
                 });
             }
             return CharacterListCtrl;
         }());
-        angular.module('characterManagement').controller('CharacterListCtrl', CharacterListCtrl);
+        angular.module('characterManagement')
+            .component('appCharacterList', {
+            controller: CharacterListCtrl,
+            controllerAs: 'vm',
+            bindings: {
+                firstName: '<',
+                lastName: '<',
+                characterId: '<'
+            },
+            templateUrl: '/Sales%20App/SaleApp/src/views/app/home.html'
+        })
+            .controller('CharacterListCtrl', CharacterListCtrl);
     })(controllers = characterApp.controllers || (characterApp.controllers = {}));
 })(characterApp || (characterApp = {}));
 

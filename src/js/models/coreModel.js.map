@@ -1,0 +1,1 @@
+{"version":3,"sources":["models/coreModel.ts"],"names":[],"mappings":"AAOC","file":"coreModel.js","sourcesContent":["module characterApp.core {\r\n    export interface IResult<T> extends ng.resource.IResource<IResult<T>> {\r\n        success: boolean;\r\n        data: T;\r\n        errorMessage: string;\r\n        errorType: string;\r\n    }\r\n}"]}

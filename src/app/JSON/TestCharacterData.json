@@ -1,0 +1,32 @@
+{   
+    "success": "true",
+    "data" :
+    [
+        {            
+            "characterId": "1",
+            "firstName": "Toni",
+            "lastName": "Bennet"
+        },
+        {            
+            "characterId": "2",
+            "firstName": "Katie",
+            "lastName": "Bennet"
+        },
+        {            
+            "characterId": "3",
+            "firstName": "Kenie",
+            "lastName": "Davidson"
+        },
+        {            
+            "characterId": "4",
+            "firstName": "Sean",
+            "lastName": "Kuda"
+        },
+        {            
+            "characterId": "5",
+            "firstName": "Jake",
+            "lastName": "Libke"
+        }
+    ]
+    
+}

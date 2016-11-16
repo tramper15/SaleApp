@@ -1,21 +1,21 @@
-module characterApp.common {
-    interface IDataAccessService {
-         getCharacterResource() : ng.resource.IResourceClass<ICharacterResource>;
+module characterApp.services {
+    import IResult = characterApp.core.IResult;
+    import ICharacterModel = characterApp.models.ICharacterModel;
+
+    export interface IDataAccessService {
+        getCharacterResource(): ng.IPromise<IResult<ICharacterModel[]>>;
     }
 
-    interface ICharacterResource extends ng.resource.IResource<characterApp.models.ICharacterModel> {
+    function DataAccessService($resource: ng.resource.IResourceService): IDataAccessService {
+        let characterResource: ng.resource.IResourceClass<IResult<ICharacterModel[]>> =
+            $resource<IResult<ICharacterModel[]>>('/Sales%20App/SaleApp/src/app/JSON/TestCharacterData.json');
 
+        return {
+            getCharacterResource: (): ng.IPromise<IResult<ICharacterModel[]>> => {
+                return characterResource.get().$promise;
+            }
+        };
     }
-
-    export class DataAccessService implements IDataAccessService {
-        static $inject = ['$resource'];
-        constructor (private $resource: ng.resource.IResourceService) {
-
-        }
-
-        getCharacterResource() : ng.resource.IResourceClass<ICharacterResource> {
-            return this.$resource('/api/characters/:productId');
-        }
-    } 
-    angular.module('common.services').service('dataAccessService', DataAccessService);
+    DataAccessService.$inject = ['$resource'];
+    angular.module('characterManagement').factory('dataAccessService', DataAccessService);
 }

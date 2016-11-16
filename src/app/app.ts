@@ -1,5 +1,5 @@
 module characterApp {
-    var main = angular.module('characterManagement', ['ngRoute', 'common.services', 'characterResourceMock']);
+    var main = angular.module('characterManagement', ['ngRoute', 'ngResource']);
 
     main.config (routeConfig);
 
@@ -20,3 +20,5 @@ module characterApp {
        }).otherwise('/characterList');
    }
 }
+
+// , 'common.services', 'characterResourceMock'

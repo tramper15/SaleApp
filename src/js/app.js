@@ -1,6 +1,6 @@
 var characterApp;
 (function (characterApp) {
-    var main = angular.module('characterManagement', ['ngRoute', 'common.services', 'characterResourceMock']);
+    var main = angular.module('characterManagement', ['ngRoute', 'ngResource']);
     main.config(routeConfig);
     var baseUrl = '/Sales%20App/SaleApp/src';
     var viewFolderUrl = '/views/app';
@@ -18,5 +18,6 @@ var characterApp;
         }).otherwise('/characterList');
     }
 })(characterApp || (characterApp = {}));
+// , 'common.services', 'characterResourceMock' 
 
 //# sourceMappingURL=app.js.map
